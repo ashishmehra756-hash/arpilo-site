@@ -15,7 +15,7 @@ nav a{text-decoration:none}
 nav a:hover{color:var(--ink)}
 @media (max-width:560px){nav{display:none}}
 .hero{margin:30px 0 10px}
-.hero img{width:100%;height:auto;max-height:78vh;object-fit:cover;object-position:center 40%;display:block;border-radius:6px}
+.hero img{width:100%;height:auto;display:block;border-radius:6px}
 .hero figcaption{font-size:14px;color:var(--ink2);margin-top:10px}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
 .pair figure,.wide{margin:0}
@@ -42,7 +42,7 @@ p{margin:0 0 16px;max-width:62ch}
 .obj .when{font-size:14px;color:var(--ink2);margin-bottom:8px}
 .obj p{font-size:16px}
 .ph{aspect-ratio:4/5;border-radius:6px;background:linear-gradient(160deg,#2A2826,#3B3733);display:flex;align-items:flex-end;padding:12px;color:#A9A397;font-size:13px}
-.ph.lit{background:#2A2826 url(img/lichen-lit-card.jpg) center/cover}
+.ph.lit{background:#2A2826 url(img/lichen-counter-front.jpg) center/cover}
 .ph.slab{background:#2A2826 url(img/slab-lit-card.jpg) center/cover}
 .ph.lit span,.ph.slab span{background:rgba(30,28,26,.55);padding:3px 8px;border-radius:3px;color:#EDE7DA}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 22px;margin:0 0 16px}
@@ -67,3 +67,5 @@ details[open] summary::after{content:"\2013"}
 details p{margin:0 0 16px;max-width:62ch}
 details a{color:var(--teal)}
 .bts.two{grid-template-columns:1fr 1fr;max-width:520px}
+.pair.trio{grid-template-columns:repeat(3,1fr)}
+@media (max-width:560px){.pair.trio{grid-template-columns:1fr 1fr}}
