@@ -28,6 +28,8 @@ nav a:hover{color:var(--ink)}
 .year figcaption b{font-weight:600;color:var(--ink)}
 .wide{margin-top:22px}
 .wide img{aspect-ratio:auto}
+#about .wide{margin:0 0 18px}
+#about .wide img{aspect-ratio:16/9;object-fit:cover}
 @media (max-width:560px){.year{grid-template-columns:1fr}}
 h1{font-weight:400;font-size:40px;line-height:1.15;letter-spacing:-.01em;margin:26px 0 8px}
 .lede{font-size:21px;line-height:1.45;color:var(--ink2);margin:0 0 20px;max-width:34ch}
