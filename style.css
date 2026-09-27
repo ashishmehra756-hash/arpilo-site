@@ -28,6 +28,7 @@ nav a:hover{color:var(--ink)}
 .year figcaption b{font-weight:600;color:var(--ink)}
 .wide{margin-top:22px}
 .wide img{aspect-ratio:auto}
+#objects .wide{margin-top:22px}
 #about .wide{margin:0 0 18px}
 #about .wide img{aspect-ratio:16/9;object-fit:cover}
 @media (max-width:560px){.year{grid-template-columns:1fr}}
@@ -44,7 +45,8 @@ p{margin:0 0 16px;max-width:62ch}
 .ph{aspect-ratio:4/5;border-radius:6px;background:linear-gradient(160deg,#2A2826,#3B3733);display:flex;align-items:flex-end;padding:12px;color:#A9A397;font-size:13px}
 .ph.lit{background:#2A2826 url(img/lichen-counter-front.jpg) center/cover}
 .ph.slab{background:#2A2826 url(img/slab-lit-card.jpg) center/cover}
-.ph.lit span,.ph.slab span{background:rgba(30,28,26,.55);padding:3px 8px;border-radius:3px;color:#EDE7DA}
+.ph.nod{background:#2A2826 url(img/nodule-card.jpg) center/cover}
+.ph.lit span,.ph.slab span,.ph.nod span{background:rgba(30,28,26,.55);padding:3px 8px;border-radius:3px;color:#EDE7DA}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 22px;margin:0 0 16px}
 dt{color:var(--ink2)}
 dd{margin:0}
