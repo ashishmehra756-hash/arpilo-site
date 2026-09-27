@@ -1,0 +1,41 @@
+/* arpilo.ca - one static page. Cream is the stock, charcoal is the plinth. */
+:root{--paper:#F4EFE4;--ink:#3B3733;--ink2:#6E6A62;--rule:#D9D2C3;--teal:#3F8C86;--ochre:#D4A92C;--max:760px}
+@media (prefers-color-scheme:dark){:root{--paper:#1E1C1A;--ink:#EDE7DA;--ink2:#A9A397;--rule:#3A3733}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 "Gill Sans","Gill Sans MT",Calibri,"Helvetica Neue",Arial,sans-serif}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;justify-content:space-between;padding:26px 0 8px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.tile{width:46px;height:46px;flex:none}
+.wordmark{height:19px;width:auto;display:block;color:var(--ink)}
+nav{display:flex;gap:22px;font-size:15px;color:var(--ink2)}
+nav a{text-decoration:none}
+nav a:hover{color:var(--ink)}
+@media (max-width:560px){nav{display:none}}
+.hero{margin:30px 0 10px}
+.hero img{width:100%;height:auto;max-height:78vh;object-fit:cover;object-position:center 40%;display:block;border-radius:6px}
+.hero figcaption{font-size:14px;color:var(--ink2);margin-top:10px}
+h1{font-weight:400;font-size:40px;line-height:1.15;letter-spacing:-.01em;margin:26px 0 8px}
+.lede{font-size:21px;line-height:1.45;color:var(--ink2);margin:0 0 20px;max-width:34ch}
+h2{font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);margin:0 0 14px}
+section{padding:40px 0 8px;border-top:1px solid var(--rule)}
+p{margin:0 0 16px;max-width:62ch}
+.objects{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px;margin-top:6px}
+.obj h3{font-weight:400;font-size:22px;margin:12px 0 4px}
+.obj .when{font-size:14px;color:var(--ink2);margin-bottom:8px}
+.obj p{font-size:16px}
+.ph{aspect-ratio:4/5;border-radius:6px;background:linear-gradient(160deg,#2A2826,#3B3733);display:flex;align-items:flex-end;padding:12px;color:#A9A397;font-size:13px}
+.ph.lit{background:#2A2826 url(img/lichen-lit-card.jpg) center/cover}
+.ph.slab{background:#2A2826 url(img/slab-lit-card.jpg) center/cover}
+.ph.lit span,.ph.slab span{background:rgba(30,28,26,.55);padding:3px 8px;border-radius:3px;color:#EDE7DA}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 22px;margin:0 0 16px}
+dt{color:var(--ink2)}
+dd{margin:0}
+.note{font-size:15px;color:var(--ink2)}
+footer{border-top:1px solid var(--rule);margin-top:40px;padding:26px 0 50px;font-size:14px;color:var(--ink2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.warn{border-left:3px solid var(--ochre);padding:6px 0 6px 14px;margin:0 0 18px}
+.day{margin:6px 0 22px}
+.day img{width:100%;height:auto;display:block;border-radius:6px}
+.day figcaption{font-size:14px;color:var(--ink2);margin-top:8px}
