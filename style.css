@@ -89,3 +89,12 @@ details a{color:var(--teal)}
 .note li{margin:0 0 8px;line-height:1.5}
 .note li b{font-weight:600}
 .note .back{margin-top:34px;font-size:15px}
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:8px 0 18px}
+@media (max-width:760px){.story{grid-template-columns:1fr}}
+.story h3{font-weight:400;font-size:22px;margin:0 0 8px}
+.story p{font-size:16px;line-height:1.6;color:var(--ink2)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 14px}
+.duo img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:5px;display:block}
+.duo figcaption{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-top:2px}
+.shore{margin:4px 0 26px}
+.shore img{aspect-ratio:21/9 !important;object-fit:cover}
