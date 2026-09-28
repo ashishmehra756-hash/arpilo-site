@@ -98,3 +98,10 @@ details a{color:var(--teal)}
 .duo figcaption{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-top:2px}
 .shore{margin:4px 0 26px}
 .shore img{aspect-ratio:21/9 !important;object-fit:cover}
+.sets{margin:26px 0 8px;border:1px solid var(--rule);border-radius:6px;padding:18px 20px}
+.sets h3{font-weight:400;font-size:20px;margin:0 0 10px}
+.sets ul{list-style:none;margin:0 0 10px;padding:0}
+.sets li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:16px}
+.sets li:last-child{border-bottom:0}
+.sets li b{font-weight:600}
+.sets p{font-size:14px;color:var(--ink2);margin:0}
