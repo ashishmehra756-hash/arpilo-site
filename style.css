@@ -111,3 +111,8 @@ details a{color:var(--teal)}
 .buy span{display:block;font-size:14px;color:var(--ink2);margin-top:9px}
 .obj .incl{font-size:14px;color:var(--ink);margin:0 0 6px}
 .obj .when a{color:var(--teal)}
+.sub{font-size:16px;color:var(--ink2);margin:-2px 0 14px;letter-spacing:.01em}
+.badges{margin:10px 0 4px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{display:inline-block;font-size:13px;line-height:1.3;padding:5px 11px;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+.obj .incl{display:flex;flex-wrap:wrap;gap:6px}
+.obj .incl .badge{font-size:12px;padding:4px 9px}
