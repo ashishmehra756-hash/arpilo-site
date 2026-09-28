@@ -105,3 +105,9 @@ details a{color:var(--teal)}
 .sets li:last-child{border-bottom:0}
 .sets li b{font-weight:600}
 .sets p{font-size:14px;color:var(--ink2);margin:0}
+.buy{margin:4px 0 6px}
+.btn{display:inline-block;padding:11px 20px;border-radius:4px;background:var(--ink);color:var(--paper);text-decoration:none;font-size:16px;letter-spacing:.01em}
+.btn:hover{opacity:.88}
+.buy span{display:block;font-size:14px;color:var(--ink2);margin-top:9px}
+.obj .incl{font-size:14px;color:var(--ink);margin:0 0 6px}
+.obj .when a{color:var(--teal)}
