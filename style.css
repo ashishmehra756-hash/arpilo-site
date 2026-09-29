@@ -38,7 +38,8 @@ h2{font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
 section{padding:36px 0 10px;border-top:1px solid var(--rule)}
 #how{border-top:0;padding-top:10px}
 p{margin:0 0 16px;max-width:62ch}
-.objects{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px;margin-top:6px}
+.objects{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:6px}
+@media (max-width:560px){.objects{grid-template-columns:1fr}}
 .obj h3{font-weight:400;font-size:22px;margin:12px 0 2px}
 .obj .when{font-size:14px;color:var(--ink2);margin-bottom:8px}
 .obj p{font-size:16px}
@@ -46,7 +47,8 @@ p{margin:0 0 16px;max-width:62ch}
 .ph.lit{background:#2A2826 url(img/lichen-counter-front.jpg) center/cover}
 .ph.slab{background:#2A2826 url(img/slab-lit-card.jpg) center/cover}
 .ph.nod{background:#2A2826 url(img/nodule-card.jpg) center/cover}
-.ph.lit span,.ph.slab span,.ph.nod span{background:rgba(30,28,26,.55);padding:3px 8px;border-radius:3px;color:#EDE7DA}
+.ph.lan{background:#2A2826 url(img/closed-pair.jpg) center/cover}
+.ph.lit span,.ph.slab span,.ph.nod span,.ph.lan span{background:rgba(30,28,26,.55);padding:3px 8px;border-radius:3px;color:#EDE7DA}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 22px;margin:0 0 16px}
 dt{color:var(--ink2)}
 dd{margin:0}
