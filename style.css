@@ -13,7 +13,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:26p
 nav{display:flex;gap:22px;font-size:15px;color:var(--ink2)}
 nav a{text-decoration:none}
 nav a:hover{color:var(--ink)}
-@media (max-width:560px){nav{display:none}}
+@media (max-width:560px){header{flex-wrap:wrap;gap:10px}nav{width:100%;overflow-x:auto;gap:18px;font-size:15px;white-space:nowrap;padding:4px 0 2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}nav::-webkit-scrollbar{display:none}}
 .hero{margin:30px 0 10px}
 .hero img{width:100%;height:auto;display:block;border-radius:6px}
 .hero figcaption{font-size:14px;color:var(--ink2);margin-top:10px}
@@ -125,3 +125,4 @@ details a{color:var(--teal)}
 .sets .lead{font-size:15px;color:var(--ink2);margin:0 0 12px;max-width:60ch}
 .companions li span{padding-right:14px;line-height:1.45}
 .companions li b{white-space:nowrap}
+@media (max-width:560px){.companions li{flex-wrap:wrap}.companions li b{white-space:normal}}
