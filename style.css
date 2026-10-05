@@ -126,3 +126,9 @@ details a{color:var(--teal)}
 .companions li span{padding-right:14px;line-height:1.45}
 .companions li b{white-space:nowrap}
 @media (max-width:560px){.companions li{flex-wrap:wrap}.companions li b{white-space:normal}}
+.teaser{display:flex;gap:14px;align-items:center;margin:22px 0 6px;padding:10px;border:1px solid var(--rule);border-radius:6px;color:var(--ink);text-decoration:none}
+.teaser img{width:132px;height:auto;border-radius:4px;flex:none}
+.teaser span{font-size:15px;line-height:1.4;color:var(--ink2)}
+.teaser b{color:var(--ink);font-weight:600}
+.teaser:hover{border-color:var(--ink2)}
+@media (max-width:560px){.teaser img{width:104px}}
