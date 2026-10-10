@@ -44,10 +44,6 @@ p{margin:0 0 16px;max-width:62ch}
 .obj .when{font-size:14px;color:var(--ink2);margin-bottom:8px}
 .obj p{font-size:16px}
 .ph{aspect-ratio:4/5;border-radius:6px;background:linear-gradient(160deg,#2A2826,#3B3733);display:flex;align-items:flex-end;padding:12px;color:#A9A397;font-size:13px}
-.ph.lit{background:#2A2826 url(img/lichen-counter-front.jpg) center/cover}
-.ph.slab{background:#2A2826 url(img/slab-lit-card.jpg) center/cover}
-.ph.nod{background:#2A2826 url(img/nodule-card.jpg) center/cover}
-.ph.lan{background:#2A2826 url(img/lantern-card.jpg) center/cover}
 .ph.lit span,.ph.slab span,.ph.nod span,.ph.lan span{background:rgba(30,28,26,.55);padding:3px 8px;border-radius:3px;color:#EDE7DA}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 22px;margin:0 0 16px}
 dt{color:var(--ink2)}
