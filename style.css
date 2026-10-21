@@ -13,7 +13,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:26p
 nav{display:flex;gap:22px;font-size:15px;color:var(--ink2)}
 nav a{text-decoration:none}
 nav a:hover{color:var(--ink)}
-@media (max-width:560px){header{flex-wrap:wrap;gap:10px}nav{width:100%;overflow-x:auto;gap:18px;font-size:15px;white-space:nowrap;padding:4px 0 2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}nav::-webkit-scrollbar{display:none}}
+@media (max-width:560px){header{flex-wrap:wrap;gap:10px}nav{width:100%;flex-wrap:wrap;gap:6px 16px;font-size:15px;white-space:nowrap;padding:4px 0 2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}nav::-webkit-scrollbar{display:none}}
 .hero{margin:30px 0 10px}
 .hero img{width:100%;height:auto;display:block;border-radius:6px}
 .hero figcaption{font-size:14px;color:var(--ink2);margin-top:10px}
@@ -158,3 +158,18 @@ details a{color:var(--teal)}
 .perks{font-size:14px;color:var(--ink2);padding-left:18px;margin:0 0 18px}
 .buybox h2{margin-top:22px}.buybox ul{padding-left:18px}
 @media (max-width:800px){.itempage{grid-template-columns:1fr}}
+.soonbtn{background:var(--rule);color:var(--ink);cursor:default}
+
+.values{padding-left:1.2em;margin:8px 0 18px}.values li{margin:0 0 10px;line-height:1.5}
+.pick{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--ink2);margin-top:12px}
+.pick select{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:10px}
+.dealnote{background:rgba(212,169,44,.14);border-radius:6px;padding:8px 12px;font-size:14px;margin:6px 0}
+.dealtag{font-size:12px;background:rgba(212,169,44,.22);border-radius:10px;padding:2px 8px;align-self:flex-start}
+button.btn{border:0;width:100%;font:inherit;cursor:pointer}
+.cartpage{max-width:640px}.carttable{width:100%;border-collapse:collapse;margin:14px 0}
+.carttable td{padding:10px 4px;border-bottom:1px solid var(--rule);font-size:15px}.carttable .r{text-align:right;white-space:nowrap}
+.carttable .q{white-space:nowrap}.carttable button{font:inherit;width:28px;height:28px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:50%;cursor:pointer}
+.sums{display:grid;grid-template-columns:1fr auto;gap:6px 16px;margin:10px 0 16px}.sums dd{margin:0;text-align:right}.sums .tot{font-weight:600;font-size:18px}
+.pick select{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:10px}
+.codebox{display:flex;gap:8px;margin:6px 0 0}.codebox input{flex:1;font:inherit;font-size:16px;padding:9px;border:1px solid var(--rule);border-radius:6px;background:var(--paper);color:var(--ink);text-transform:uppercase}
+.codebox button{font:inherit;padding:9px 16px;border:1px solid var(--ink);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}
