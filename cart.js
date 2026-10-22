@@ -45,6 +45,8 @@
     function show() {
       var i = sel.selectedIndex;
       price.textContent = money(P.prices[i]);
+      var st = document.getElementById('story'); if (st) st.textContent = (P.stories || [])[i] || '';
+      var bl = document.getElementById('belief'); if (bl) bl.textContent = (P.beliefs || [])[i] || '';
       document.getElementById('dealnote').style.display = P.deal[i] ? '' : 'none';
       if (gal.length === sel.options.length && gal[i]) gal[i].scrollIntoView({ block: 'nearest', inline: 'start' });
     }

@@ -211,3 +211,6 @@ button.btn{border:0;width:100%;font:inherit;cursor:pointer}
 .coast{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 34px}.coast figure{margin:0 0 4px}.coast img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block}
 @media (max-width:700px){.families,.coast{grid-template-columns:1fr}}
 .coastimg{margin:6px 0 4px}.coastimg img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block}.coastimg figcaption{font-size:14px;color:var(--ink2);margin-top:6px}
+.pickstory{font-size:15px;line-height:1.45;margin:2px 0 8px;font-style:italic}
+.nature{border-left:3px solid var(--teal);padding:4px 0 4px 14px;font-size:15px;color:var(--ink2)}.nature span{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:2px}
+.belief{font-size:14px;color:var(--ochre);margin:0 0 8px}.belief:empty{display:none}
