@@ -52,7 +52,7 @@
     }
     sel.onchange = show; show();
     add.onclick = function () {
-      var i = sel.selectedIndex, c = load(), name = P.title + ' - ' + P.choices[i];
+      var i = sel.selectedIndex, c = load(), name = P.choices.length > 1 ? P.title + ' - ' + P.choices[i] : P.title;
       var hit = c.filter(function (it) { return it.n === name; })[0];
       if (hit) hit.q += 1; else c.push({ n: name, p: P.prices[i], d: P.deal[i], q: 1 });
       save(c);

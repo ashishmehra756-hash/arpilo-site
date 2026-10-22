@@ -228,3 +228,4 @@ button.btn{border:0;width:100%;font:inherit;cursor:pointer}
 .today{display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center;font-size:14px;color:var(--ink2);margin:14px 0 0;text-align:center}
 .today #line{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:17px;color:var(--ink)}
 @media (max-width:700px){.today .dot{display:none}.today{flex-direction:column}}
+.pick[hidden]{display:none}
