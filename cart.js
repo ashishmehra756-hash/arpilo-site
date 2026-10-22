@@ -2,7 +2,7 @@
    which fills in CFG. The cart lives in this browser only; prices are re-checked against every
    PayPal payment before anything ships. */
 (function () {
-  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "email": "hello@arpilo.ca"};
+  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "minOrder": 25.0, "email": "hello@arpilo.ca"};
   var KEY = 'arpilo-cart';
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
@@ -24,12 +24,13 @@
     var items = full + deal.reduce(function (a, b) { return a + b; }, 0);
     var bundle = Math.round((bundled - 30 * fives) * 100) / 100;
     var sub = items - bundle;
-    var code = codeOn() ? Math.round(sub * 0.15 * 100) / 100 : 0;
+    var code = codeOn() ? Math.round(sub * RATE[codeOn()] * 100) / 100 : 0;
     var ship = count === 0 || sub >= CFG.freeFrom ? 0 : CFG.ship;
     return { items: items, bundle: bundle, code: code, discount: bundle + code, sub: sub,
              ship: ship, total: sub - code + ship, count: count, toFive: n % 5 >= 3 ? 5 - n % 5 : 0 };
   }
-  function codeOn() { try { return localStorage.getItem(KEY + '-code') === 'ARPILO15'; } catch (e) { return false; } }
+  var RATE = {ARPILO15: 0.15};
+  function codeOn() { try { var c = localStorage.getItem(KEY + '-code'); return RATE[c] ? c : ''; } catch (e) { return ''; } }
 
   function badge() {
     var c = load().reduce(function (a, it) { return a + it.q; }, 0);
@@ -76,13 +77,13 @@
       root.innerHTML = '<table class="carttable">' + rows + '</table>' +
         '<dl class="sums"><dt>Items</dt><dd>' + money(t.items) + '</dd>' +
         (t.bundle > 0 ? '<dt>5 for CA$30</dt><dd>&minus;' + money(t.bundle) + '</dd>' : '') +
-        (t.code > 0 ? '<dt>ARPILO15</dt><dd>&minus;' + money(t.code) + '</dd>' : '') +
+        (t.code > 0 ? '<dt>' + codeOn() + '</dt><dd>&minus;' + money(t.code) + '</dd>' : '') +
         '<dt>Delivery</dt><dd>' + (t.ship ? money(t.ship) : 'Free') + '</dd>' +
         '<dt class="tot">Total</dt><dd class="tot">' + money(t.total) + '</dd></dl>' +
         (t.toFive ? '<p class="dealnote">Add ' + t.toFive + ' more from the CA$7.99 bracelets: any 5 for CA$30, with free delivery.</p>'
           : t.ship && toFree > 0 ? '<p class="note">Add ' + money(toFree) + ' more for free delivery.</p>' : '') +
         '<form class="codebox" id="codebox"><input id="code" placeholder="Code" autocomplete="off" value="' +
-        (codeOn() ? 'ARPILO15' : '') + '"><button type="submit">' + (codeOn() ? 'Remove' : 'Apply') + '</button></form>' +
+        codeOn() + '"><button type="submit">' + (codeOn() ? 'Remove' : 'Apply') + '</button></form>' +
         '<p class="note" id="codemsg"></p>' +
         '<div id="paybox"></div>';
       root.querySelectorAll('button[data-k]').forEach(function (b) {
@@ -97,7 +98,7 @@
         var v = document.getElementById('code').value.trim().toUpperCase();
         try {
           if (codeOn()) localStorage.removeItem(KEY + '-code');
-          else if (v === 'ARPILO15') localStorage.setItem(KEY + '-code', v);
+          else if (RATE[v]) localStorage.setItem(KEY + '-code', v);
           else { document.getElementById('codemsg').textContent = 'That code is not recognised.'; return; }
         } catch (err) {}
         draw();
@@ -109,9 +110,14 @@
 
   function pay(c, t) {
     var box = document.getElementById('paybox');
+    if (t.sub < CFG.minOrder) {          /* a lone small order costs more to send than it earns */
+      box.innerHTML = '<p class="dealnote">Orders start at ' + money(CFG.minOrder) + '. Add ' + money(CFG.minOrder - t.sub) +
+        ' more to check out: any five CA$7.99 pieces are CA$30 with free delivery.</p>';
+      return;
+    }
     var lines = c.map(function (it) { return it.q + ' x ' + it.n; }).join('\n');
     if (!CFG.clientId) {
-      var body = 'I would like:\n' + lines + (t.code ? '\nCode: ARPILO15' : '') + '\n\nTotal ' + money(t.total) + ' (delivery ' + (t.ship ? money(t.ship) : 'free') +
+      var body = 'I would like:\n' + lines + (t.code ? '\nCode: ' + codeOn() : '') + '\n\nTotal ' + money(t.total) + ' (delivery ' + (t.ship ? money(t.ship) : 'free') +
         ')\n\nShip to:\n';
       box.innerHTML = '<a class="btn big" href="mailto:' + CFG.email + '?subject=' + encodeURIComponent('arpilo.ca order') +
         '&body=' + encodeURIComponent(body) + '">Order by email</a>' +
@@ -124,7 +130,7 @@
         createOrder: function (data, actions) {
           return actions.order.create({
             purchase_units: [{
-              description: 'arpilo.ca order' + (t.code ? ' (ARPILO15)' : ''),
+              description: 'arpilo.ca order' + (t.code ? ' (' + codeOn() + ')' : ''),
               amount: { currency_code: 'CAD', value: t.total.toFixed(2), breakdown: {
                 item_total: { currency_code: 'CAD', value: t.items.toFixed(2) },
                 shipping: { currency_code: 'CAD', value: t.ship.toFixed(2) },
