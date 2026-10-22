@@ -214,3 +214,17 @@ button.btn{border:0;width:100%;font:inherit;cursor:pointer}
 .pickstory{font-size:15px;line-height:1.45;margin:2px 0 8px;font-style:italic}
 .nature{border-left:3px solid var(--teal);padding:4px 0 4px 14px;font-size:15px;color:var(--ink2)}.nature span{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:2px}
 .belief{font-size:14px;color:var(--ochre);margin:0 0 8px}.belief:empty{display:none}
+.trust{list-style:none;padding:0;margin:14px 0 6px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.trust li{background:rgba(63,140,134,.10);border-radius:6px;padding:10px 12px;font-size:13px;color:var(--ink2);line-height:1.35}
+.trust b{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+.gifts{border-top:0;padding-top:16px}.gifts .band h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:600;margin:6px 0 10px}
+@media (max-width:700px){.trust{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.card .ct{font-size:15px}}
+.savings{}.savegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:8px}
+.savegrid h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:600;margin:0 0 8px}
+.savegrid table{width:100%;border-collapse:collapse;font-size:15px}.savegrid td{padding:7px 0;border-bottom:1px solid var(--rule)}
+.savegrid td:nth-child(2){text-align:right;white-space:nowrap;padding-left:10px}.savegrid .save{text-align:right;color:var(--teal);font-size:13px;padding-left:10px}
+.savelink{font-size:14px;margin:4px 0 10px}.savelink a{text-decoration:none;border-bottom:1px solid var(--ochre)}
+@media (max-width:700px){.savegrid{grid-template-columns:1fr}}
+.today{display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center;font-size:14px;color:var(--ink2);margin:14px 0 0;text-align:center}
+.today #line{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:17px;color:var(--ink)}
+@media (max-width:700px){.today .dot{display:none}.today{flex-direction:column}}
