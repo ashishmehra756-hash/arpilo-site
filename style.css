@@ -202,3 +202,12 @@ button.btn{border:0;width:100%;font:inherit;cursor:pointer}
 .chapnav{display:flex;gap:26px;justify-content:center;margin:24px 0 4px;font-family:"Cormorant Garamond",Georgia,serif;font-size:24px}
 .chapnav a{text-decoration:none;border-bottom:1px solid var(--ochre)}
 .chapter-sec{border-top:0;padding-top:0}
+.guide{border-top:0}.guide h2.ch{margin-top:34px}
+.families{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 28px}.families h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:600;margin:10px 0 2px}
+.checks{padding-left:18px}.checks li{margin-bottom:6px}
+.stones{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:4px 28px}
+.stone h3,.coast h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:600;margin:14px 0 4px}
+.stone p{margin:0 0 6px;font-size:16px}
+.coast{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 34px}.coast figure{margin:0 0 4px}.coast img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block}
+@media (max-width:700px){.families,.coast{grid-template-columns:1fr}}
+.coastimg{margin:6px 0 4px}.coastimg img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block}.coastimg figcaption{font-size:14px;color:var(--ink2);margin-top:6px}
