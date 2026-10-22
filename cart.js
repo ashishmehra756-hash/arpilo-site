@@ -2,7 +2,7 @@
    which fills in CFG. The cart lives in this browser only; prices are re-checked against every
    PayPal payment before anything ships. */
 (function () {
-  var CFG = {"clientId": null, "ship": 5.0, "freeFrom": 30.0, "email": "hello@arpilo.ca"};
+  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "email": "hello@arpilo.ca"};
   var KEY = 'arpilo-cart';
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
@@ -82,7 +82,7 @@
         '<form class="codebox" id="codebox"><input id="code" placeholder="Code" autocomplete="off" value="' +
         (codeOn() ? 'ARPILO15' : '') + '"><button type="submit">' + (codeOn() ? 'Remove' : 'Apply') + '</button></form>' +
         '<p class="note" id="codemsg"></p>' +
-        '<div id="paypal"></div>';
+        '<div id="paybox"></div>';
       root.querySelectorAll('button[data-k]').forEach(function (b) {
         b.onclick = function () {
           var c = load(), it = c[+b.dataset.k]; it.q += +b.dataset.v;
@@ -106,7 +106,7 @@
   }
 
   function pay(c, t) {
-    var box = document.getElementById('paypal');
+    var box = document.getElementById('paybox');
     var lines = c.map(function (it) { return it.q + ' x ' + it.n; }).join('\n');
     if (!CFG.clientId) {
       var body = 'I would like:\n' + lines + (t.code ? '\nCode: ARPILO15' : '') + '\n\nTotal ' + money(t.total) + ' (delivery ' + (t.ship ? money(t.ship) : 'free') +
@@ -145,7 +145,7 @@
         onError: function () {
           box.insertAdjacentHTML('beforeend', '<p class="note">PayPal could not start. Email us at ' + CFG.email + ' and we will sort it.</p>');
         }
-      }).render('#paypal');
+      }).render('#paybox');
     }
     if (window.paypal) return render();
     var s = document.createElement('script');
