@@ -2,14 +2,14 @@
    which fills in CFG. The cart lives in this browser only; prices are re-checked against every
    PayPal payment before anything ships. */
 (function () {
-  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "minOrder": 25.0, "email": "hello@arpilo.ca"};
+  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "minOrder": 9.99, "five": 34.99, "email": "hello@arpilo.ca"};
   var KEY = 'arpilo-cart';
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
   function save(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} badge(); }
   function money(n) { return 'CA$' + n.toFixed(2); }
 
-  /* Deal pieces: every 5 for 30; fewer than 5 pay their own price. ARPILO15 (the card in every
+  /* Deal pieces: every 5 for CFG.five (34.99); fewer than 5 pay their own price. ARPILO15 (the card in every
      Etsy box) takes 15% off after the bundle. Free delivery is judged before the code, so using the
      code never makes delivery reappear. */
   function totals(cart) {
@@ -22,7 +22,7 @@
     var n = deal.length, fives = Math.floor(n / 5);
     var bundled = deal.slice(0, 5 * fives).reduce(function (a, b) { return a + b; }, 0);
     var items = full + deal.reduce(function (a, b) { return a + b; }, 0);
-    var bundle = Math.round((bundled - 30 * fives) * 100) / 100;
+    var bundle = Math.round((bundled - CFG.five * fives) * 100) / 100;
     var sub = items - bundle;
     var code = codeOn() ? Math.round(sub * RATE[codeOn()] * 100) / 100 : 0;
     var ship = count === 0 || sub >= CFG.freeFrom ? 0 : CFG.ship;
@@ -76,11 +76,11 @@
       var toFree = CFG.freeFrom - t.sub;
       root.innerHTML = '<table class="carttable">' + rows + '</table>' +
         '<dl class="sums"><dt>Items</dt><dd>' + money(t.items) + '</dd>' +
-        (t.bundle > 0 ? '<dt>5 for CA$30</dt><dd>&minus;' + money(t.bundle) + '</dd>' : '') +
+        (t.bundle > 0 ? '<dt>5 for ' + money(CFG.five) + '</dt><dd>&minus;' + money(t.bundle) + '</dd>' : '') +
         (t.code > 0 ? '<dt>' + codeOn() + '</dt><dd>&minus;' + money(t.code) + '</dd>' : '') +
         '<dt>Delivery</dt><dd>' + (t.ship ? money(t.ship) : 'Free') + '</dd>' +
         '<dt class="tot">Total</dt><dd class="tot">' + money(t.total) + '</dd></dl>' +
-        (t.toFive ? '<p class="dealnote">Add ' + t.toFive + ' more from the CA$7.99 bracelets: any 5 for CA$30, with free delivery.</p>'
+        (t.toFive ? '<p class="dealnote">Add ' + t.toFive + ' more glow or opalite bracelets: any 5 for CA$34.99, with free delivery.</p>'
           : t.ship && toFree > 0 ? '<p class="note">Add ' + money(toFree) + ' more for free delivery.</p>' : '') +
         '<form class="codebox" id="codebox"><input id="code" placeholder="Code" autocomplete="off" value="' +
         codeOn() + '"><button type="submit">' + (codeOn() ? 'Remove' : 'Apply') + '</button></form>' +
@@ -111,8 +111,8 @@
   function pay(c, t) {
     var box = document.getElementById('paybox');
     if (t.sub < CFG.minOrder) {          /* a lone small order costs more to send than it earns */
-      box.innerHTML = '<p class="dealnote">Orders start at ' + money(CFG.minOrder) + '. Add ' + money(CFG.minOrder - t.sub) +
-        ' more to check out: any five CA$7.99 pieces are CA$30 with free delivery.</p>';
+      box.innerHTML = '<p class="dealnote">Orders start at ' + money(CFG.minOrder) + ' in items, before delivery. Add ' +
+        money(CFG.minOrder - t.sub) + ' more to check out.</p>';
       return;
     }
     var lines = c.map(function (it) { return it.q + ' x ' + it.n; }).join('\n');
