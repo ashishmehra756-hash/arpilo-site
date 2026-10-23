@@ -229,3 +229,4 @@ button.btn{border:0;width:100%;font:inherit;cursor:pointer}
 .today #line{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:17px;color:var(--ink)}
 @media (max-width:700px){.today .dot{display:none}.today{flex-direction:column}}
 .pick[hidden]{display:none}
+#coast .story h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;font-weight:600;margin:4px 0 6px}
