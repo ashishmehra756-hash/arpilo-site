@@ -25,7 +25,7 @@
     var bundle = Math.round((bundled - CFG.five * fives) * 100) / 100;
     var sub = items - bundle;
     var code = codeOn() ? Math.round(sub * RATE[codeOn()] * 100) / 100 : 0;
-    var ship = count === 0 || sub >= CFG.freeFrom ? 0 : CFG.ship;
+    var ship = count === 0 || sub >= CFG.freeFrom || cart.some(function (it) { return it.f; }) ? 0 : CFG.ship;
     return { items: items, bundle: bundle, code: code, discount: bundle + code, sub: sub,
              ship: ship, total: sub - code + ship, count: count, toFive: n % 5 >= 3 ? 5 - n % 5 : 0 };
   }
@@ -55,7 +55,7 @@
     add.onclick = function () {
       var i = sel.selectedIndex, c = load(), name = P.choices.length > 1 ? P.title + ' - ' + P.choices[i] : P.title;
       var hit = c.filter(function (it) { return it.n === name; })[0];
-      if (hit) hit.q += 1; else c.push({ n: name, p: P.prices[i], d: P.deal[i], q: 1 });
+      if (hit) hit.q += 1; else c.push({ n: name, p: P.prices[i], d: P.deal[i], f: !!P.free, q: 1 });
       save(c);
       msg.innerHTML = 'Added. <a href="../cart.html">View cart</a>';
     };
