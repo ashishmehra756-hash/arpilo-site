@@ -231,3 +231,22 @@ button.btn{border:0;width:100%;font:inherit;cursor:pointer}
 .pick[hidden]{display:none}
 #coast .story h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;font-weight:600;margin:4px 0 6px}
 .policy{max-width:68ch}.policy h2{margin-top:26px}.policy ul{padding-left:20px}.policy li{margin:0 0 8px}
+/* --- new this week, shop by feeling, light it up (31 Oct) --- */
+.card{position:relative}
+.newtag{position:absolute;top:8px;left:8px;background:var(--ochre);color:#1E1C1A;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+.newin{border-top:0;padding-top:8px}
+.feel .sub2{margin-top:-4px}
+.feelgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:14px 0 30px}
+.feeltile{position:relative;display:block;border-radius:6px;overflow:hidden;text-decoration:none;color:#fff;aspect-ratio:4/3}
+.feeltile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.feeltile:hover img{transform:scale(1.04)}
+.feeltile::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.1) 55%,rgba(0,0,0,0))}
+.feeltile .ft,.feeltile .fs{z-index:1}
+.feeltile .ft{position:absolute;left:16px;bottom:38px;font-family:"Cormorant Garamond",Georgia,serif;font-size:30px;font-weight:600}
+.feeltile .fs{position:absolute;left:16px;right:16px;bottom:12px;font-size:13px;line-height:1.3;opacity:.92}
+.grouph{font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:600;margin:10px 0 10px}
+.lightit{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center;border:1px solid var(--rule);border-radius:6px;padding:18px 20px;margin:24px 0}
+.lightit h2{margin:4px 0 6px}
+.feelnav{font-size:14px;margin:14px 0}.feelnav a{margin-left:10px}
+.feelpage h1{margin-bottom:4px}
+@media (max-width:700px){.feelgrid{grid-template-columns:repeat(2,1fr);gap:10px}.feeltile{aspect-ratio:1/1}.feeltile .ft{font-size:24px;bottom:46px}.feeltile .fs{font-size:12px}.lightit{grid-template-columns:1fr}}
