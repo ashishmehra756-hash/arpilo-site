@@ -2,7 +2,7 @@
    which fills in CFG. The cart lives in this browser only; prices are re-checked against every
    PayPal payment before anything ships. */
 (function () {
-  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "minOrder": 9.99, "five": 34.99, "email": "hello@arpilo.ca"};
+  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "minOrder": 6.99, "five": 34.99, "email": "hello@arpilo.ca"};
   var KEY = 'arpilo-cart';
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
