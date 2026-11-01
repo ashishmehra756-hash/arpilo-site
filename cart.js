@@ -143,6 +143,13 @@
             application_context: { shipping_preference: 'GET_FROM_FILE', brand_name: 'Arpilo' }
           });
         },
+        /* Canada only (Ashish, 31 Oct): PayPal refuses any delivery address outside Canada. Rejects only when a
+           country is actually given and it is not CA, so a Canadian buyer is never blocked by a missing field.
+           Every order is still checked by hand before it ships. */
+        onShippingAddressChange: function (data, actions) {
+          var cc = data && data.shippingAddress && data.shippingAddress.countryCode;
+          if (cc && cc !== 'CA') return actions.reject(data.errors && data.errors.COUNTRY_ERROR);
+        },
         onApprove: function (data, actions) {
           return actions.order.capture().then(function () {
             save([]); try { localStorage.removeItem(KEY + '-code'); } catch (e) {}
