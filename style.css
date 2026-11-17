@@ -250,3 +250,45 @@ button.btn{border:0;width:100%;font:inherit;cursor:pointer}
 .feelnav{font-size:14px;margin:14px 0}.feelnav a{margin-left:10px}
 .feelpage h1{margin-bottom:4px}
 @media (max-width:700px){.feelgrid{grid-template-columns:repeat(2,1fr);gap:10px}.feeltile{aspect-ratio:1/1}.feeltile .ft{font-size:24px;bottom:46px}.feeltile .fs{font-size:12px}.lightit{grid-template-columns:1fr}}
+
+/* --- vibrant (17 Nov 2026, Ashish: "add vibrant colours") - each chapter on its own soft colour, candy red buttons --- */
+:root{--paper:#FFFBF6;--pink:#F9D3DC;--ice:#D3EAF7;--mint:#D4F0DC;--butter:#FCEBC0;--peach:#FBD9C9;--lilac:#E9DFF6;
+--red:#D7263D;--redtext:#B3122E;--card:#FFFFFF;--ochre:#C9971C}
+@media (prefers-color-scheme:dark){:root{--paper:#1C1A19;--pink:#3A2730;--ice:#1E2F3B;--mint:#20352A;--butter:#3A3220;
+--peach:#3B2B23;--lilac:#2D2639;--red:#E8455A;--redtext:#FF8A98;--card:#26231F}}
+body{border-top:6px solid transparent;border-image:linear-gradient(90deg,#F28BA0,#F7C85C,#7FD39A,#6DB7E8,#B79BEA) 1}
+.btn{background:var(--red);color:#fff;border-radius:26px;font-weight:600}
+.btn.ghost{background:transparent;color:var(--redtext);box-shadow:inset 0 0 0 2px var(--red)}
+.eyebrow{color:var(--redtext)}
+.newtag{background:var(--red);color:#fff}
+.card .price{color:var(--redtext)}
+.hero2{display:grid;grid-template-columns:1fr 1fr;align-items:center;background:#F9D3DC;color:#3B2A2E;border:0;border-radius:18px;
+overflow:hidden;margin:18px 0 0;padding:0}
+.hero2-text{padding:34px 34px}
+.hero2 h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:52px;line-height:1.04;margin:8px 0 12px;color:#3B1E26}
+.hero2 p{color:#5A3F45}.hero2 .eyebrow{color:#B3122E}
+.hero2 .btn{margin:6px 8px 0 0}.hero2 .btn.ghost{color:#B3122E;box-shadow:inset 0 0 0 2px #D7263D}
+.hero2 .herodeal{font-size:14px;margin:14px 0 0}
+.hero2 img{width:100%;height:100%;object-fit:cover;display:block;min-height:360px}
+@media (max-width:760px){.hero2{grid-template-columns:1fr}.hero2 img{order:-1;min-height:0;aspect-ratio:6/5}.hero2-text{padding:22px 20px}.hero2 h1{font-size:38px}}
+.trust li{border-radius:12px;color:var(--ink)}
+.trust li:nth-child(1){background:var(--pink)}.trust li:nth-child(2){background:var(--mint)}
+.trust li:nth-child(3){background:var(--ice)}.trust li:nth-child(4){background:var(--butter)}
+.chapnav{flex-wrap:wrap;gap:10px}
+.chapnav a{border:0;padding:6px 16px;border-radius:22px;font-size:20px;background:var(--pink)}
+.chapnav a:nth-child(2){background:var(--mint)}.chapnav a:nth-child(3){background:var(--ice)}
+.chapnav a:nth-child(4){background:var(--lilac)}.chapnav a:nth-child(5){background:var(--butter)}
+.chapter-sec[class*="tint-"]{border-top:0;border-radius:18px;padding:8px 22px 4px;margin:22px 0}
+.tint-pink{background:var(--pink)}.tint-mint{background:var(--mint)}.tint-ice{background:var(--ice)}
+.tint-butter{background:var(--butter)}.tint-lilac{background:var(--lilac)}.tint-peach{background:var(--peach)}
+.chapter-sec .chapter{margin:18px 0 24px}
+.chapter-sec .card{background:var(--card);padding:8px 8px 12px;border-radius:14px;box-shadow:0 2px 12px rgba(60,30,30,.08)}
+.chapter-sec .card img{border-radius:10px}
+.chapter-sec .grouph{margin-top:4px}
+.newin .card,.gifts .card{background:var(--card);padding:8px 8px 12px;border-radius:14px;box-shadow:0 2px 12px rgba(60,30,30,.08)}
+.newin{background:var(--butter);border-radius:18px;padding:14px 22px 2px;margin-top:22px}
+.savegrid>div{border-radius:14px;padding:16px 18px}
+.savegrid>div:nth-child(1){background:var(--pink)}.savegrid>div:nth-child(2){background:var(--lilac)}.savegrid>div:nth-child(3){background:var(--mint)}
+.buybox .btn.big{background:var(--red)}
+.itempage .bigprice{color:var(--redtext)}
+@media (max-width:700px){.chapter-sec[class*="tint-"],.newin{padding:6px 12px 2px;border-radius:14px}.chapnav a{font-size:17px}}
