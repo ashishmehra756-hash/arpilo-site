@@ -2,7 +2,7 @@
    which fills in CFG. The cart lives in this browser only; prices are re-checked against every
    PayPal payment before anything ships. */
 (function () {
-  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "minOrder": 6.99, "five": 34.99, "email": "hello@arpilo.ca"};
+  var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "minOrder": 4.0, "five": 34.99, "email": "hello@arpilo.ca"};
   var KEY = 'arpilo-cart';
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
@@ -22,7 +22,7 @@
     var n = deal.length, fives = Math.floor(n / 5);
     var bundled = deal.slice(0, 5 * fives).reduce(function (a, b) { return a + b; }, 0);
     var items = full + deal.reduce(function (a, b) { return a + b; }, 0);
-    var bundle = Math.round((bundled - CFG.five * fives) * 100) / 100;
+    var bundle = Math.max(0, Math.round((bundled - CFG.five * fives) * 100) / 100);   // never above their own prices (17 Nov)
     var sub = items - bundle;
     var code = codeOn() ? Math.round(sub * RATE[codeOn()] * 100) / 100 : 0;
     var ship = count === 0 || sub >= CFG.freeFrom || cart.some(function (it) { return it.f; }) ? 0 : CFG.ship;
