@@ -5,9 +5,19 @@
   var CFG = {"clientId": "BAAQVRrimYHVsuTti72omEa0fW3qJox6diO_CJ3ZUCZnQxTetog1MLdM5HuhH_xhBdHB4KJ7XW1IrmYbPg", "ship": 5.0, "freeFrom": 30.0, "minOrder": 4.0, "five": 34.99, "email": "hello@arpilo.ca"};
   var KEY = 'arpilo-cart';
 
-  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+  /* 18 Nov security check: whatever is in browser storage is cleaned on the way in - names are plain text,
+     prices and counts are numbers - so nothing stored there can run as code on the cart page. */
+  function load() {
+    var c; try { c = JSON.parse(localStorage.getItem(KEY)); } catch (e) { c = null; }
+    if (!Array.isArray(c)) return [];
+    return c.map(function (it) {
+      return { n: String(it && it.n || '').slice(0, 120), p: Math.max(0, +(it && it.p) || 0), d: !!(it && it.d),
+               f: !!(it && it.f), q: Math.max(0, Math.floor(+(it && it.q) || 0)) };
+    }).filter(function (it) { return it.n && it.q > 0; });
+  }
   function save(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} badge(); }
-  function money(n) { return 'CA$' + n.toFixed(2); }
+  function money(n) { return 'CA$' + (+n || 0).toFixed(2); }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (ch) { return '&#' + ch.charCodeAt(0) + ';'; }); }
 
   /* Deal pieces: every 5 for CFG.five (34.99); fewer than 5 pay their own price. ARPILO15 (the card in every
      Etsy box) takes 15% off after the bundle. Free delivery is judged before the code, so using the
@@ -68,7 +78,7 @@
       var c = load(), t = totals(c);
       if (!c.length) { root.innerHTML = '<p>Your cart is empty. <a href="index.html#bracelets">See the bracelets.</a></p>'; return; }
       var rows = c.map(function (it, k) {
-        return '<tr><td>' + it.n + (it.d ? ' <span class="dealtag">deal</span>' : '') + '</td>' +
+        return '<tr><td>' + esc(it.n) + (it.d ? ' <span class="dealtag">deal</span>' : '') + '</td>' +
           '<td class="q"><button data-k="' + k + '" data-v="-1" aria-label="One fewer">&minus;</button> ' + it.q +
           ' <button data-k="' + k + '" data-v="1" aria-label="One more">+</button></td>' +
           '<td class="r">' + money(it.p * it.q) + '</td></tr>';
