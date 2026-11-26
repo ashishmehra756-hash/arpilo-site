@@ -11,6 +11,8 @@ html{scroll-behavior:smooth}body.v3{border:0;border-image:none;background:var(--
 .v3 .btn{background:#55465F;color:#fff;border-radius:999px;padding:14px 26px;font:500 16px/1 "DM Sans",sans-serif;transition:transform .2s,background .2s}.v3 .btn:hover{background:#463950;transform:translateY(-2px)}
 .v3 .btn.big{padding:17px 24px;border-radius:999px;background:#55465F}.txt{display:block;margin:16px 0 0;font-weight:500;text-underline-offset:4px}
 .v3hero{position:relative}.v3hero img{display:block;width:100%;height:auto;aspect-ratio:2400/1250;object-fit:cover;border-radius:30px;background:#1B2A4A}
+.v3film{display:block;width:100%;height:auto;aspect-ratio:1440/750;object-fit:cover;border-radius:30px;background:#1B2A4A url(img/v3/village-film-poster.jpg) center/cover no-repeat}
+@media (max-width:760px){.v3film{aspect-ratio:1080/1500;border-radius:24px;background-image:url(img/v3/village-film-tall-poster.jpg)}}
 .v3herotext{padding:26px 40px 0;text-align:center}.v3herotext h1{font-size:clamp(34px,4.1vw,60px);margin:0 auto 8px;color:#3B2D40}.v3herotext p{margin:0 auto 20px;color:#5A4A60;font-size:18px;max-width:none}
 .v3line{max-width:none;text-align:center;color:var(--ink2);font-size:15px;margin:20px 0 0}
 .v3 .grid{display:grid;gap:34px 22px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));margin:0}.v3 .grid.four{grid-template-columns:repeat(4,1fr)}.v3 .grid.five{grid-template-columns:repeat(5,1fr)}
