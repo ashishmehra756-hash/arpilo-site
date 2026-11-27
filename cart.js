@@ -71,6 +71,21 @@
     };
   }
 
+  /* A pairing button on another piece's page (26 Nov 2026: 4 LED tealights offered on the tree page). It adds the same cart
+     line the tealight page itself adds, so the cart and the PayPal price check see one item, not two. */
+  function pairs() {
+    Array.prototype.forEach.call(document.querySelectorAll('button.addpair'), function (b) {
+      b.onclick = function () {
+        var name = String(b.getAttribute('data-n') || '').slice(0, 120), pr = Math.max(0, +b.getAttribute('data-p') || 0);
+        if (!name || !pr) return;
+        var c = load(), hit = c.filter(function (it) { return it.n === name; })[0];
+        if (hit) hit.q += 1; else c.push({ n: name, p: pr, d: false, f: false, q: 1 });
+        save(c);
+        var m = b.parentNode.querySelector('.pairmsg'); if (m) m.innerHTML = 'Added. <a href="../cart.html">View cart</a>';
+      };
+    });
+  }
+
   /* Cart page. */
   function cartPage() {
     var root = document.getElementById('cart'); if (!root) return;
@@ -178,5 +193,5 @@
     s.onload = render; document.head.appendChild(s);
   }
 
-  badge(); product(); cartPage();
+  badge(); product(); pairs(); cartPage();
 })();
